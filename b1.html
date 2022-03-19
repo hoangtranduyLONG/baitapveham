@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="displayArea"></table>
+<script>
+    let listProduct = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi note', 'Apple iPhone', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8Plus', 'Fujjitsu F-04E', 'Oppo A71'];
+    displayALL();
+
+    function displayALL() {
+        let str = '<tr>\n' +
+            '<td>Product.Name</td>\n' +
+            '<td></td>\n' +
+            '<td>' + listProduct.length + 'product </td>\n' +
+            '</tr>';
+        for (let i = 0; i < listProduct.length; i++) {
+            str += '<tr><td>' + listProduct[i] + '</td>'+
+            '<td><button onclick="showFormEdit(' + i + ')">Edit</button></td>' +
+            '<td><button onclick="deleteProduction(' + i + ')">Delete</button></td></tr>'
+        }
+        document.getElementById('displayArea').innerHTML = str;
+    }
+    function addProduct() {
+        let productName = document.getElementById('add').value;
+        document.getElementById('add').value = '';
+        listProduct.push(productName);
+        console.log(listProduct);
+        displayALL();
+    }
+
+    function deleteProduction(inDex) {
+        listProduct.splice(inDex, 1);
+        displayALL();
+    }
+
+    function showFormEdit(inDex) {
+
+        let str = '';
+        str = '<input type="text" id="editProduct" value="' + listProduct[inDex] + '"><button onclick="saveProduct(' + inDex + ')">Save</button>';
+        document.getElementById('edit').innerHTML = str;
+    }
+
+    function saveProduct(inDex) {
+        listProduct[inDex] = document.getElementById('editproduct').value;
+        document.getElementById('edit').innerHTML = '';
+        displayALL();
+    }
+</script>
+</body>
+</html>

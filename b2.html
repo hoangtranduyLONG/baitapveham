@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm kiểm tra số nguyên tố</title>
+</head>
+<body>
+<input type="text" id="vao">
+<button onclick="check()">Ktra</button>
+<h1 id="rs"></h1>
+<script>
+  let txt = document.getElementById('vao');
+  let rs = document.getElementById('rs');
+  function check() {
+      let num = +txt.valueOf();
+      let kq = isPrime(num);
+      rs.innerHTML = kq;
+  }
+function isPrime(x) {
+      let xxx = "là số nguyên tố";
+      for (let i =2; i*i < x; i++) {
+          if (a % i ==0) {
+              check = "Không phải số nguyên tố";
+              break;
+          }
+    }
+      return xxx;
+}
+</script>
+</body>
+</html>

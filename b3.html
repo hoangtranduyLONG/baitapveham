@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+<select id="chon">
+    <option value ="f">Foot to meter</option>
+    <option value="m">Meter to foot</option>
+</select>
+<button onclick="change()">Chuyển</button>
+<h1 id="rs"></h1>
+<script>
+    let giDo = document.getElementById('txt');
+    let ch = document.getElementById('chon');
+    let rs = document.getElementById('rs');
+    function change(){
+        let luachon = ch.vallue;
+        let so = giDo.value;
+        if (luachon == "f") {
+            rs.innerHTML = footToMeter(so);
+        }else{
+            rs.innerHTML = meterToFoot(so);
+        }
+    }
+function footToMeter(foot) {
+    let meter = 0.305 * foot;
+    return meter;
+    }
+    function meterToFoot(meter) {
+    let foot= 3.279 * meter;
+    return foot;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
